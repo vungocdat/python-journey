@@ -24,10 +24,7 @@ html = """
 
 
 soup = BeautifulSoup(html, "html.parser")
-# returns a list, by [0] returns the 1st item
-element = soup.select(".special")[0]
-print(element)
-print(element.get_text())  # get_text() return what's inside
-print(element.name)  # name returns a tag such as div / li / h3 etc
-# returns a dictionary of all attributesprint(element.get_text())  # get_text() return what's inside
-print(element.attrs)
+# tag = soup.body.contents[1].next_sibling.next_sibling # access the OL tag
+# tag = soup.find(class_="super-special").parent # different way to access the OL tag using find
+tag = soup.select("[data-example]")[1].find_previous_sibling() # accessing tag IL with select
+print(tag)
